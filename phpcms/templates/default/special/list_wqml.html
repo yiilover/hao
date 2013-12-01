@@ -1,0 +1,24 @@
+{template 'special', 'header'}
+
+<div class="zt_pos"><span class="left">当前位置：<a href="http://www.xueshuhao.com/" title="中华医护好网">首页</a> > <a href="zazhi/?id=50" title="《健康大视野》">《健康大视野》</a> > <a href="zazhi/page.php?navid=293" title="投稿论文">投稿论文</a></span><span class="right"><font color="red">温馨提示：请按“Ctrl+D”收藏本页</font></span></div>	
+
+<div class="clear mt10"></div>
+{template 'special', 'left'}
+
+<div class="zt_R_main">
+<h3 class="zt_h3_1"><strong><a title="往期目录" href="/index.php?m=special&c=index&a=category&specialid=<?php echo $specialid?>&typeid=57">《<?php echo $info[title]?>》往期目录</a></strong></h3>
+{pc:special  action="content_list" specialid="$specialid" typeid="$typeid" listorder="3" page="$page" num="20"}
+<ul class="ul_c indexXS" style="padding:10px;">
+{loop $data $r}
+<li>
+<span class="left"><a title="{$r['title']}" target="_blank" href="{$r['url']}">{$r['title']}</a></span><span class="right"></span>
+</li>
+{/loop}
+<div class="fenye clear" style="text-align:center">{$pages}</div>
+</ul>
+{/pc}
+{template 'special', 'tgbd'}
+</div>
+<!--//zt_R_main-->
+<div class="clear"></div>
+{template 'special', 'footer'}

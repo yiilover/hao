@@ -1,0 +1,30 @@
+<div class="zt_L_main">
+﻿		<div><a href="/index.php?m=special&c=index&specialid=<?php echo $specialid?>" title="搞稿此杂志"><img src="/statics/v1/images/zt/tougao.gif" /></a></div>
+<div class="zt_zuixin mt10">
+<h3 class="h3_b"><strong>最新投稿</strong></h3>
+{pc:special  action="content_list" specialid="$specialid" typeid="53" listorder="3" page="$page" num="12"}
+<ul class="ul_c">
+{loop $data $r}
+<li>
+{if $r['status']==1}<font color="red">[已审核]</font>{else}<font color="blue">[待审核]</font>{/if}&nbsp;
+<a href="{$r['url']}" target="_blank" title="{$r['title']}">{str_cut($r['title'], 40)}</a>
+</li>
+{if $n%4==0}
+<li class="h10"></li>
+{/if}
+{/loop}
+</ul>
+{/pc}
+</div>
+<!--//zt_zuixin-->		
+<div class="zt_zuixin mt10">
+<h3 class="h3_b"><strong>相关论文</strong></h3>
+{pc:special  action="content_list" specialid="$specialid" typeid="56" listorder="3" page="$page" num="10"}
+<ul class="ul_c">
+<li><a href="{$r['url']}" target="_blank" title="{$r['title']}">{str_cut($r['title'], 60)}</a></li>
+</ul>
+{/pc}
+</div>
+<!--//相关文章-->
+</div>
+<!--//zt_L_main-->

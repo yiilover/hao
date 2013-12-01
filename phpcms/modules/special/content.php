@@ -59,7 +59,8 @@ class content extends admin {
 			if ($_POST['dosubmit']) showmessage(L('content_add_success'), HTTP_REFERER, '', '', 'setTimeout("window.close()", 2000)');
 			elseif ($_POST['dosubmit_continue']) showmessage(L('content_add_success'), HTTP_REFERER);
 		} else {
-			$rs = $this->type_db->select(array('parentid'=>$_GET['specialid'], 'siteid'=>$this->get_siteid()), 'typeid, name');
+			//$rs = $this->type_db->select(array('parentid'=>$_GET['specialid'], 'siteid'=>$this->get_siteid()), 'typeid, name');
+			$rs = $this->type_db->select(array('modelid'=>0,'module'=>'special', 'siteid'=>$this->get_siteid()), 'typeid, name');
 			$types = array();
 			foreach ($rs as $r) {
 				$types[$r['typeid']] = $r['name'];
@@ -141,7 +142,7 @@ class content extends admin {
 		} else {
 			$info = $this->db->get_one(array('id'=>$_GET['id'], 'specialid'=>$_GET['specialid']));
 			if($info['isdata']) $data = $this->data_db->get_one(array('id'=>$_GET['id']));
-			$rs = $this->type_db->select(array('parentid'=>$_GET['specialid'], 'siteid'=>$this->get_siteid()), 'typeid, name');
+			$rs = $this->type_db->select(array('modelid'=>0,'module'=>'special', 'siteid'=>$this->get_siteid()), 'typeid, name');
 			$types = array();
 			foreach ($rs as $r) {
 				$types[$r['typeid']] = $r['name'];
@@ -158,6 +159,18 @@ class content extends admin {
 			@extract($s_info);
 			include $this->admin_tpl('content_edit');
 		}
+	}
+	
+	public function download() {
+		$_GET['specialid'] = intval($_GET['specialid']);
+		$_GET['id'] = intval($_GET['id']);		
+		$r = $this->db->get_one(array('id'=>$_GET['id'], 'specialid'=>$_GET['specialid']));
+		
+		$dir = PHPCMS_PATH.'uploadfile/tougao/'.$r['uploadfile'];
+		$filename = preg_replace('/(\d{6})\//','',$r['uploadfile']);
+		header("Content-Type: application/force-download");
+		header("Content-Disposition: attachment; filename=".($filename)); 
+		readfile($dir);
 	}
 	
 	/**

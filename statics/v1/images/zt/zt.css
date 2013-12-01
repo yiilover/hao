@@ -1,0 +1,197 @@
+h1,h2,h3,h4,h5,h6,p,form,a,span,div,ul,li,ol,dl,dd,dt,body,html,input,lable{ margin:0; padding:0; }
+h1,h2,h3,h4,h5,h6,p,ul,li,dl,dt,dd{ display:block;}
+h1,h2,h3,h4,h5,h6,p,ul,li{ display:block;}
+a{ color:#333333; text-decoration:none; font-size:12px;}
+a:hover{ color:#ff0000; text-decoration:underline; font-size:12px}
+ul,li{ list-style:none}
+img{ border:0;}
+body{ font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif; background:#DFDDDA}
+.hr{ width:970px; border:1px solid #100000; height:0; overflow:hidden;margin:0; padding:0;}
+.input{ border:1px solid #7F9DB9; height:15px; font-size:12px; color:#555555}
+.clear{ clear:both; height:0px;}
+.liclear{ clear:both; height:1px;}
+.blank10{ clear:both; height:10px; font-size:0; background:#FFFFFF}
+.text{ border: 1px solid #BDC8D5; color: #333333; font-size: 12px; height: 23px; line-height: 23px; padding-left: 4px;}
+.textarea{ border: 1px solid #BDC8D5; color: #333333; font-size: 12px; line-height:150%; padding: 4px;}
+.over{ overflow:hidden}
+
+.font_red{ color:#FF0000}
+.font_cu{ font-weight:bold;}
+.font_hui{ color:#555555}
+.font_bai{ color:#FFFFFF}
+.font_888{ color:#888888}
+.h5{ height:5px; clear:both;}
+.h10{ height:10px; clear:both;}
+.h15{ height:15px; clear:both;}
+.h20{ height:20px; clear:both;}
+.h25{ height:25px; clear:both;}
+.h40{ height:40px; clear:both;}
+.left{ float:left}
+.right{ float:right}
+
+/*－－－－－－－－－－－width 样式－－－－－－－－－－－－－*/
+.w960{ width:960px; margin:0 auto; overflow:hidden;}
+.w80{ width:80%;}
+.w20{ width:18%; text-align:right}
+.w70{ width:70%;}
+.w30{ width:28%; text-align:right}
+.w85{ width:85%;}
+.w15{ width:15%; text-align:right}
+
+
+/*－－－－－－－－－－－margin & padding－－－－－－－－－－－－－*/
+.mt5{ margin-top:5px;}
+.mt10{ margin-top:10px;}
+.mt15{ margin-top:15px;}
+.mr0{margin-right:0px;}
+.p10{ padding:10px;}
+.pt0{ padding-top:0;}
+.p_l_r{ padding:0 10px;}
+.pad5_10{ padding:5px 10px;}
+
+
+/*－－－－－－－－－－－ad－－－－－－－－－－－－－*/
+.ad{ overflow:hidden;}
+
+.pagelist {
+    color: #666666;
+    height: 26px;
+    line-height: 26px;
+    margin-top: 10px;
+	text-align:center;
+}
+.pagelist a {
+    border: 1px solid #E2E2E2;
+    color: #666666;
+    font-size: 14px;
+    margin-right: 5px;
+    padding: 2px 6px;
+}
+
+
+
+.fenye{ height:30px; line-height:30px; overflow:hidden; padding:0 15px; font-size:12px; color:#555555; margin-top:10px;}
+.fenye a{ border:1px solid #e2e2e2; background:#F7FBFF; padding:2px 6px; margin-right:8px;}
+.fenye a:hover{ border:1px solid #BDCDDE; background:#ECF5FF; padding:2px 6px; text-decoration:none}
+
+/****/
+.zt_h3_1{ height:30px; line-height:30px; background:url(tou2_bg.gif) no-repeat 0 0; clear:both;}
+.zt_h3_1 strong{ padding-left:30px;}
+.zt_h3_1 strong a{ font-size:14px; color:#CC0000}
+.zt_h3_1 strong a:hover{ font-size:14px; color:#ff0000}
+.zt_h3_1 span.right{ padding-right:10px;}
+.zt_h3_1 span.right a{ font-size:12px; color:#CC0000; font-weight:normal;}
+.zt_h3_1 span.right a:hover{ font-size:12px; color:#ff0000}
+
+.h3_b{ height:30px; line-height:30px; background:url(tou2_bg.gif) no-repeat; overflow:hidden;}
+.h3_b strong{ color:#cc0000; padding-left:30px;}
+
+/****/
+ul.ul_c{ overflow:hidden; padding:10px 0; clear:both;}
+ul.ul_c li{ height:24px; line-height:24px; overflow:hidden; padding-left:10px; background:url(36.gif) no-repeat 0 10px; font-size:12px; color:#555555}
+ul.ul_c li a{ font-size:12px; color:#333333;}
+ul.ul_c li a:hover{ font-size:12px; color:#ff0000}
+/*首页往期目录*/
+ul.ul_a{ overflow:hidden; border:1px solid #F3CEAB; padding:10px 0 5px 15px; display:block; clear:both;}
+ul.ul_a li{ width:142px; overflow:hidden; float:left; margin-right:20px;}
+ul.ul_a li img{ width:138px; height:180px; border:1px solid #cccccc; padding:1px;}
+ul.ul_a li a:hover{ text-decoration:none}
+ul.ul_a li a:hover img{border:1px solid #ff0000; padding:1px;}
+ul.ul_a li span{ height:30px; line-height:30px; text-align:center; overflow:hidden; display:block;}
+
+ul.ul_c{ overflow:hidden; padding:10px 0;}
+ul.ul_c li{ height:24px; line-height:24px; overflow:hidden; padding-left:10px; background:url(36.gif) no-repeat 0 10px; font-size:12px; color:#555555}
+ul.ul_c li a{ font-size:12px; color:#333333;}
+ul.ul_c li a:hover{ font-size:12px; color:#ff0000}
+
+
+
+
+/*************专题样式***************/
+#zt_top{background:url(top_bg.gif) repeat-x;  height:25px; line-height:25px; color:#888888}
+	.topPart{ width:960px; margin:0 auto; overflow:hidden;}
+	.topPart span{ display:block;}
+	.topPart span.left{}
+	.topPart span.left a{ font-size:12px; color:#000000; margin-right:8px; background:url(36.gif) no-repeat 0 5px; padding-left:10px;}
+	.topPart span.left a:hover{ font-size:12px; color:#ff0000}
+	.topPart span.right{ width:220px; text-align:right; background:url(icon_1.gif) no-repeat -15px 1px;}
+	.topPart span.right a{ padding-left:25px; margin-right:0;}
+
+/*专题大框*/
+.zt_main{ width:960px; margin:0 auto; overflow:hidden; border:5px solid #FFFFFF; background:#FFFFFF}
+.zt_L_main{ width:250px; float:left; overflow:hidden;}
+.zt_R_main{ width:700px; float:right; overflow:hidden;}
+
+/*-专题导航-*/
+.zt_nav{ height:38px; overflow:hidden; background:url(zt_nav_bg.gif) repeat-x; margin-top:5px; padding:0 15px; border:1px solid #CC6400; border-bottom:none; border-top:none}
+	.zt_nav a{ width:100px; float:left; height:38px; text-align:center; line-height:38px; font-size:14px; color:#ffffff; overflow:hidden; background:url(zt_nav_r.gif) no-repeat right center}
+	.zt_nav a:hover{ background:url(zt_nav_hover.gif) no-repeat 0 0; color:#ff0000; font-size:14px; line-height:42px; font-weight:bold; text-decoration:none;}
+	.zt_nav a.spec{ float:right; padding-top:8px; height:30px; overflow:hidden;}
+	.zt_nav a.spec:hover{ background:none}
+
+/*专题导航*/
+.zt_pos{ background:url(pos_bg.png) repeat-x; padding:4px 15px; overflow:hidden; margin-top:5px; color:#555555; border:1px solid #e2e2e2; background:#f1f1f1}
+.zt_pos strong{ font-size:14px; color:#cc0000; padding-left:25px; background:url(pos_t.gif) no-repeat 0 0;}
+
+/*左侧杂志介绍*/
+.m_intr{ border:1px solid #F3CEAB; padding:10px;}
+.m_intr p{ font-size:12px; color:#333333; text-indent:2em; line-height:180%; margin-top:5px;}
+.m_intr p a{ color:#ff0000; text-decoration:underline;}
+.m_intr p a:hover{ background:#ff0000; color:#FFFFFF;}
+/*-左侧最新录用-*/
+.luyong{ margin-top:15px; overflow:hidden;}
+.luyong li{ width:235px;}
+
+/*-首页学术论文-*/
+.indexXS{ border:1px solid #F3CEAB;}
+	.indexXS li.h10{ background:url(line.gif) repeat-x center}
+
+/*-搞稿必读-*/
+.zt_bidu{ overflow:hidden;}
+	.zt_bidu .con{ background:#FFEBD8; overflow:hidden; padding:10px; font-size:12px; line-height:180%;}
+	.zt_bidu .con p{ background:#FFEBD8; overflow:hidden; font-size:12px; margin-top:5px;}
+	.zt_bidu .con p a{ color:#FF0000; text-decoration:underline}
+	.zt_bidu .con p a:hover{ color:#FF0000; font-weight:bold; text-decoration:underline}
+
+/*-底部链接-*/
+.zt_link{ overflow:hidden; border:1px solid #cccccc; padding:10px; line-height:250%;}
+	.zt_link a{ padding:0 5px;}
+
+/*-底部版权-*/
+.zt_copy{ overflow:hidden; line-height:200%; text-align:center; padding:30px 0 20px 0;}
+	.zt_copy a{ color:#000000;}
+	.zt_copy a:hover{ color:#ff0000;}
+
+/*左侧咨询*/
+.zt_zixun a{ height:50px; display:block; background:url(zixun_b.gif) no-repeat 0 0;}
+.zt_zixun a:hover{ height:50px; display:block; background:url(zixun_b.gif) no-repeat 0 -50px;}
+
+/*-专题左侧　最新投稿-*/
+.zt_zuixin{ overflow:hidden;}
+	.zt_zuixin .ul_c{ border:1px solid #F3CEAB; padding:10px;}
+	.zt_zuixin .ul_c li.h10{ height:21px; background:url(line.gif) repeat-x center}
+	.zt_zuixin .ul_c li{ color:#FF0000;}
+
+
+/*-专题内容页-*/
+.zt_article{ padding:30px 20px; color:#333333;}
+	.zt_article h1.tit{ font-size:18px; color:#ff0000; text-align:center; line-height:150%; color:#333333;}
+	.zt_article h6.info{ font-size:12px; color:#888888; font-weight:normal; text-align:center; line-height:24px;}
+	.zt_article .desc{ border:1px solid #F3CEAB; padding:8px 10px; margin-top:15px; color:#555555; line-height:150%; background:#FFFAF6}
+	.zt_article .con{ font-size:12px; line-height:180%; padding:30px 0;}
+	.zt_article .con p{ font-size:12px; margin-top:5px; line-height:180%;}
+	
+	.zt_article .updown{ font-size:12px; font-weight:bold; background:url(line.gif) repeat-x top; padding-top:10px;}
+	.zt_article .updown li a{ color:#ff0000; font-weight:normal; line-height:24px;}
+	.zt_article .updown li a:hover{ color:#ff0000}
+
+
+
+
+
+
+
+
+
+
+.

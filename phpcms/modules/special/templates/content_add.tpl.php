@@ -15,6 +15,7 @@ html,body{ background:#e2e9ea}
 <script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>content_addtop.js"></script>
 <script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>colorpicker.js"></script>
 <script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>cookie.js"></script>
+
 <form name="myform" id="myform" action="?m=special&c=content&a=add&specialid=<?php echo $_GET['specialid']?>" method="post" enctype="multipart/form-data">
 <div class="addContent">
 <div class="crumbs"><?php echo L('pos_info')?></div>
@@ -77,7 +78,10 @@ html,body{ background:#e2e9ea}
             </select>
 			<span id="paginationtype1" style="display:none"><input name="data[maxcharperpage]" type="text" id="maxcharperpage" value="10000" size="8" maxlength="8"><?php echo L('number_of_characters')?></span>  </td>
     </tr>
- 
+ 	<tr>
+      <th width="80"> 审  核	  </th>
+      <td>  <input type="radio" name="info[status]" id="status" value="1" checked>是&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="info[status]" id="status" value="0" >否</td>
+    </tr>
     </tbody></table>
                 </div>
         	</div>

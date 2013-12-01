@@ -3,6 +3,7 @@ defined('IN_ADMIN') or exit('No permission resources.');
 $show_validator = $show_scroll = $show_dialog = 1; 
 include $this->admin_tpl('header', 'admin');
 ?>
+<script language="javascript" type="text/javascript" src="<?php echo JS_PATH?>ckeditor/ckeditor.js"></script>
 <form method="post" action="?m=special&c=special&a=edit&specialid=<?php echo $_GET['specialid']?>" id="myform">
 <div class="pad-10">
 <div class="col-tab">
@@ -26,8 +27,12 @@ include $this->admin_tpl('header', 'admin');
 				<td><?php echo form::images('special[thumb]', 'thumb', $info['thumb'], 'special', '', 40, '', '', '', array(350, 350))?></td>
 			</tr>
 			<tr>
-				<th><?php echo L('special_intro')?>：</th>
-				<td><textarea name="special[description]" id="description" cols="50" rows="6"><?php echo $info['description'];?></textarea></td>
+				<th>杂志介绍：</th>
+				<td><textarea name="special[description]" id="description" cols="50" rows="6"><?php echo $info['description'];?></textarea>
+				<script type="text/javascript">
+			CKEDITOR.replace( 'description',{width:600});
+			</script>
+				</td>
 			</tr>
 			<tr>
 		    	<th align="right" valign="top"><?php echo L('ishtml')?>：</th>
@@ -39,6 +44,7 @@ include $this->admin_tpl('header', 'admin');
 		        <td valign="top"><input type="text" name="special[filename]" id="filename" class="input-text"<?php if($info['ishtml']) {?> readonly<?php }?> value="<?php echo $info['filename']?>" size="20">
 		        </td>
 		    </tr>
+			<!--
 		    <tr>
 		    	<th width="200"><?php echo L('special_type')?>：<a href="javascript:addItem()" title="<?php echo L('add')?>"><span style="color:red;" >+</span></a></th>
 		        <td valign="top">
@@ -49,6 +55,107 @@ include $this->admin_tpl('header', 'admin');
 		        </div>
 		        </td>
     </tr>
+	-->
+	
+<tr>
+        <th width="200"> 投稿必读：</th>
+        <td><textarea boxid="tgbd" id="tgbd" name="special[tgbd]"  style="visibility: hidden; display: none;"><?php echo $info['tgbd'];?></textarea>
+			<script type="text/javascript">
+			CKEDITOR.replace( 'tgbd',{width:600});
+			</script>
+		 </td>
+    </tr>
+	
+	<tr>
+		<th width="200">主管单位：</th>
+		<td><input name="special[zgdw]" id="zgdw" value="<?php echo $info['zgdw'];?>" class="input-text" type="text" size="40"></td>
+	</tr>	
+	
+	<tr>
+		<th width="200">主办单位：</th>
+		<td><input name="special[zbdw]" id="zbdw" value="<?php echo $info['zbdw'];?>" class="input-text" type="text" size="40"></td>
+	</tr>	
+	
+	<tr>
+		<th width="200">国内刊号：</th>
+		<td><input name="special[gnkh]" id="gnkh" value="<?php echo $info['gnkh'];?>" class="input-text" type="text" size="40"></td>
+	</tr>			
+
+	<tr>
+		<th width="200">国际刊号：</th>
+		<td><input name="special[gjkh]" id="gjkh" value="<?php echo $info['gjkh'];?>" class="input-text" type="text" size="40"></td>
+	</tr>
+
+	<tr>
+		<th width="200">邮发代号：</th>
+		<td><input name="special[yfdh]" id="yfdh" value="<?php echo $info['yfdh'];?>" class="input-text" type="text" size="40"></td>
+	</tr>
+
+	<tr>
+		<th width="200">出版周期：</th>
+		<td><input name="special[cbzq]" id="cbzq" value="<?php echo $info['cbzq'];?>" class="input-text" type="text" size="20"></td>
+	</tr>
+
+	<tr>
+		<th width="200">语&#12288;&#12288;言：</th>
+		<td><input name="special[yuyan]" id="yuyan" value="<?php echo $info['yuyan'];?>" class="input-text" type="text" size="20"></td>
+	</tr>
+	
+	<tr>
+		<th width="200">类&#12288;&#12288;别：</th>
+		<td><input name="special[leibie]" id="leibie" value="<?php echo $info['leibie'];?>" class="input-text" type="text" size="20"></td>
+	</tr>
+	
+	<tr>
+		<th width="200">主&#12288;&#12288;编：</th>
+		<td><input name="special[zhubian]" id="zhubian" value="<?php echo $info['zhubian'];?>" class="input-text" type="text" size="20"></td>
+	</tr>
+	
+	<tr>
+		<th width="200">出 版 地：</th>
+		<td><input name="special[cbd]" id="cbd" value="<?php echo $info['cbd'];?>" class="input-text" type="text" size="20"></td>
+	</tr>
+	
+	<tr>
+		<th width="200">创刊年份：</th>
+		<td><input name="special[cknf]" id="cknf" value="<?php echo $info['cknf'];?>" class="input-text" type="text" size="20"></td>
+	</tr>
+	
+	<tr>
+		<th width="200">期刊级别：</th>
+		<td><input name="special[qkjb]" id="qkjb" value="<?php echo $info['qkjb'];?>" class="input-text" type="text" size="20"></td>
+	</tr>	
+
+	<tr>
+		<th width="200">复合影响因子：</th>
+		<td><input name="special[fhyxyz]" id="fhyxyz" value="<?php echo $info['fhyxyz'];?>" class="input-text" type="text" size="20"></td>
+	</tr>
+	
+	<tr>
+		<th width="200">综合影响因子：</th>
+		<td><input name="special[zhyxyz]" id="zhyxyz" value="<?php echo $info['zhyxyz'];?>" class="input-text" type="text" size="20"></td>
+	</tr>
+	
+	<tr>
+		<th width="200">在线QQ咨询：</th>
+		<td><input name="special[qq]" id="qq" value="<?php echo $info['qq'];?>" class="input-text" type="text" size="20"></td>
+	</tr>	
+	<tr>
+		<th width="200">在线投稿邮箱：</th>
+		<td><input name="special[email]" id="email" value="<?php echo $info['email'];?>" class="input-text" type="text" size="20"></td>
+	</tr>	
+	<tr>
+		<th width="200">投稿咨询电话：</th>
+		<td><input name="special[tel]" id="tel" value="<?php echo $info['tel'];?>" class="input-text" type="text" size="20"></td>
+	</tr>		
+	<tr>
+		<th width="200">是否推荐：</th>
+		<td><input type="radio" id="is_recommend" value="<?php echo $info['is_recommend'];?>" <?php if($info['is_recommend']==1) echo 'checked'?>>是&nbsp;&nbsp;<input type="radio" id="is_recommend" value="<?php echo $info['is_recommend'];?>" <?php if($info['is_recommend']==0) echo 'checked'?>>否</td>
+	</tr>		
+	<tr>
+		<th width="200">是否热门：</th>
+		<td><input type="radio" id="is_hot" value="<?php echo $info['is_hot'];?>" <?php if($info['is_hot']==1) echo 'checked'?>>是&nbsp;&nbsp;<input type="radio" id="is_hot" value="<?php echo $info['is_hot'];?>" <?php if($info['is_hot']==0) echo 'checked'?>>否</td>
+	</tr>	
 		</tbody>
 	</table>
 </div>

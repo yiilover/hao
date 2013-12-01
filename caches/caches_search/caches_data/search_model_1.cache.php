@@ -1,5 +1,11 @@
 <?php
 return array (
+  13 => 
+  array (
+    'typeid' => '55',
+    'name' => '杂志模型',
+    'sort' => '0',
+  ),
   1 => 
   array (
     'typeid' => '1',

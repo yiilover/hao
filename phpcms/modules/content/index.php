@@ -41,11 +41,29 @@ class index {
 			$special_list_recommend = $this->special_db->select('catid='.$r['catid'],'*',12);//期刊推荐
 			$qk_category_data[] = array('source'=>$r,'special_list'=>$special_list);
 			$qk_category_recommend_data[] = array('source'=>$r,'special_list'=>$special_list_recommend);
-		}
-
-		
-	
+		}		
 		include template('content','index',$default_style);
+	}
+	
+	//网站地图
+	public function setsitemap(){
+		$siteid = $GLOBALS['siteid'] = max($siteid,1);
+		$CATEGORYS = $this->category_db->select(array('parentid'=>0),'*','','listorder ASC');
+		$data  = array();
+		foreach($CATEGORYS as $k => $r){
+			if($r['catid']==16) $r['url'] = '/index.php?m=special&c=index&specialid=1&typeid=44';
+			$arrchildid = explode(',',$r['arrchildid']);
+			foreach($arrchildid as $i=>$v){
+				if($v==$r['catid']) continue;
+				$row = $this->category_db->get_one(array('catid'=>$v));					
+				$r['sub_cat'][] = array('catname'=>$row['catname'],'url'=>$row['url']);									
+			}						 
+			$data[] = $r;
+		}
+		include template('content','sitemap',$default_style);
+		//print_r($data);die;
+		
+		
 	}
 	//内容页
 	public function show() {

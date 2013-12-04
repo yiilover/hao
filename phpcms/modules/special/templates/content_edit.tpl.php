@@ -76,6 +76,7 @@ html,body{background:#e2e9ea}
             </select>
 			<span id="paginationtype1" style="display:<?php if($data['paginationtype']==1) {?>block<?php } else {?>none<?php }?>"><input name="data[maxcharperpage]" type="text" id="maxcharperpage" value="<?php echo $data['maxcharperpage']?>" size="8" maxlength="8"><?php echo L('number_of_characters')?></span>  </td>
     </tr>
+	
   	<tr>
       <th width="80"> 审  核	  </th>
       <td>  <input type="radio" name="info[status]" id="status" value="1" <?php if($info[status]==1) echo 'checked';?>>是&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="info[status]" id="status" value="0" <?php if($info[status]==0) echo 'checked';?>>否</td>

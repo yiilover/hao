@@ -18,6 +18,7 @@ alter table `v9_special` add column   `email` varchar(255) NOT NULL DEFAULT '';
 alter table `v9_special` add column   `tel` varchar(255) NOT NULL DEFAULT '';
 alter table `v9_special` add column   `is_recommend` smallint(3) NOT NULL DEFAULT 0;
 alter table `v9_special` add column   `is_hot` smallint(3) NOT NULL DEFAULT 0;
+alter table `v9_special` add column   `catid` smallint(5) unsigned NOT NULL ;
 alter table `v9_special` modify column  `description` mediumtext NOT NULL DEFAULT '';
 
 

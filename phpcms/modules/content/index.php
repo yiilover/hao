@@ -7,9 +7,13 @@ class index {
 	private $db;
 	function __construct() {
 		$this->db = pc_base::load_model('content_model');
+		$this->special_db = pc_base::load_model('special_model');
+		$this->category_db = pc_base::load_model('category_model');
 		$this->_userid = param::get_cookie('_userid');
 		$this->_username = param::get_cookie('_username');
 		$this->_groupid = param::get_cookie('_groupid');
+
+
 	}
 	//首页
 	public function init() {
@@ -28,6 +32,18 @@ class index {
 		$sitelist  = getcache('sitelist','commons');
 		$default_style = $sitelist[$siteid]['default_style'];
 		$CATEGORYS = getcache('category_content_'.$siteid,'commons');
+		$special_hot = $this->special_db->select('is_hot=1','*','6');
+		$special_recommend = $this->special_db->select('is_recommend=1','*','4');
+		
+		$qk_category = $this->category_db->select(array('parentid'=>13),'*');
+		foreach($qk_category as $k=>$r){
+			$special_list = $this->special_db->select('catid='.$r['catid'],'*',5);//在线投稿
+			$special_list_recommend = $this->special_db->select('catid='.$r['catid'],'*',12);//期刊推荐
+			$qk_category_data[] = array('source'=>$r,'special_list'=>$special_list);
+			$qk_category_recommend_data[] = array('source'=>$r,'special_list'=>$special_list_recommend);
+		}
+		
+	
 		include template('content','index',$default_style);
 	}
 	//内容页
@@ -70,6 +86,7 @@ class index {
 		$content_output = new content_output($modelid,$catid,$CATEGORYS);
 		$data = $content_output->get($rs);
 		extract($data);
+		//print_r($data);die;
 		
 		//检查文章会员组权限
 		if($groupids_view && is_array($groupids_view)) {
@@ -200,6 +217,8 @@ class index {
 		if(empty($next_page)) {
 			$next_page = array('title'=>L('last_page'), 'thumb'=>IMG_PATH.'nopic_small.gif', 'url'=>'javascript:alert(\''.L('last_page').'\');');
 		}
+		$special_recommend = $this->special_db->select('is_recommend=1','*','4');//大分类 推荐期刊
+		$special_hot = $this->special_db->select('is_hot=1','*','4');//小分类 热门期刊		
 		include template('content',$template);
 	}
 	//列表页
@@ -233,7 +252,10 @@ class index {
 
 		$template = $setting['category_template'] ? $setting['category_template'] : 'category';
 		$template_list = $setting['list_template'] ? $setting['list_template'] : 'list';
-		
+
+		$special_recommend = $this->special_db->select('is_recommend=1','*','4');//大分类 推荐期刊
+		$special_hot = $this->special_db->select('is_hot=1','*','4');//小分类 热门期刊
+	
 		if($type==0) {
 			$template = $child ? $template : $template_list;
 			$arrparentid = explode(',', $arrparentid);
@@ -262,6 +284,8 @@ class index {
 			$GLOBALS['URL_ARRAY']['categorydir'] = $categorydir;
 			$GLOBALS['URL_ARRAY']['catdir'] = $catdir;
 			$GLOBALS['URL_ARRAY']['catid'] = $catid;
+
+		
 			include template('content',$template);
 		} else {
 		//单网页

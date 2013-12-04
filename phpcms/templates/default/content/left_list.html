@@ -1,0 +1,25 @@
+<div class="index_left">
+<div class="remen">
+<h3 class="h3_b clear"><strong>热门期刊</strong></h3>
+<?php foreach($special_hot as $k=>$r){?>
+<div class="item <?php if($k>0 && ($k+1)%2==0) echo 'no';?>"><a href="<?php echo $r['url']?>" target="_blank" title=""><img src="<?php echo $r['thumb']?>" alt="" /><span><?php echo $r['title']?></span></a></div>
+<?php }?>
+</div>
+<!--//remen-->
+<div class="new">
+<h3 class="h3_b clear"><strong>栏目推荐</strong></h3>
+
+{pc:content  action="lists" catid="$catid" num="8"}
+<ul class="ul_c">
+{loop $data $r}
+<li><a href="{$r['url']}" target="_blank" title="">{str_cut($r['title'], 50)}</a></li>
+{if $n%5==0}<li class="h10"></li>{/if}
+{/loop}
+</ul>
+{/pc} 
+</div>
+<!--//new-->
+<div class="lianxi">{show_ad(1, 13)}
+</div>
+</div>
+<!--//index_left-->

@@ -10,6 +10,7 @@ class index {
 	function __construct() {
 		$this->db = pc_base::load_model('special_model');
 		$this->content_db = pc_base::load_model('special_content_model');
+		$this->category_db = pc_base::load_model('category_model');		
 		$this->data_db = pc_base::load_model('special_c_data_model');
 	}
 	
@@ -49,18 +50,30 @@ class index {
 		$siteid =  $_GET['siteid'] ? $_GET['siteid'] : get_siteid();
 		$SEO = seo($siteid, '', $title, $description);
 		$commentid = id_encode('special', $id, $siteid);
-		
+		$qk_category = $this->category_db->select(array('parentid'=>13),'*');
+		foreach($qk_category as $k=>$r){
+			$special_list = $this->db->select('catid='.$r['catid'],'*');
+			$qk_category_data[] = array('source'=>$r,'special_list'=>$special_list);
+		}		
 		switch($typeid){
 			case 40: $template = 'index_zzjs'; break;//杂志介绍
 			case 41: $template = 'index_zbdw'; break;//主办单位
 			case 42: $template = 'index_zxtg'; break;//在线投稿
 			case 43: $template = 'index_lxwm'; break;//联系我们
+			case 44: $template = 'index_tg'; break;//在线投稿(全站)
 			default: $template = $info['index_template'] ? $info['index_template'] : 'index';			
 		}
 		//首页往期目录
 		$wqml_db = pc_base::load_model('special_content_model');
 		$wqml = $wqml_db->select(array('specialid'=>$specialid,'typeid'=>57), '*', '', '`listorder` ASC', '', 'listorder');		
-		//print_r($wqml);die;
+		
+		//搜索
+		if($_GET['s_type'] && !empty($_GET['keyword']) ){
+			$kw = trim($_GET['keyword']);
+			if($_GET['s_type']=='title') $search = $this->content_db->select("title like '%{$kw}%' and typeid=53",'*');
+			if($_GET['s_type']=='writer') $search = $this->content_db->select(array('writer'=>$kw, 'typeid'=>53),'*');
+		}
+		
 		define('STYLE',$info['style']);
 		include template('special', $template);
 	}
@@ -98,7 +111,7 @@ class index {
 	}
 
 	public function tougao() {
-		$specialid = intval($_GET['specialid']);
+		$specialid = $_GET['specialid']?intval($_GET['specialid']):intval($_POST['zazhiid']);
 		$typeid = $_GET['typeid'] ? intval($_GET['typeid']) : 0;
 		if($typeid!=53) exit('禁止投稿');
 		$cururl = $_POST['cururl'];
@@ -114,13 +127,17 @@ class index {
 		$hitsid = 'special-c-'.$info['specialid'].'-'.$contentid;
 		$count->insert(array('hitsid'=>$hitsid));
 		$html = pc_base::load_app_class('html');
+
 		//如果不是外部链接，将内容加到data表中
 		if ($info['isdata']) {
 			$data = array('id'=>$contentid,'author'=>$info['writer'],'content'=>'。。。。。。', 'maxcharperpage'=>10000,'style'=>'default','show_template'=>'show');
 			$this->data_db->insert($data); 
-			$url = $html->_create_content($contentid);
-			$this->content_db->update(array('url'=>$url[0]), array('id'=>$contentid, 'specialid'=>$specialid));
+			//$url = $html->_create_content($contentid);
+			$url = APP_PATH.'index.php?m=special&c=index&a=show&id=' .$contentid;
+
+			$this->content_db->update(array('url'=>$url), array('id'=>$contentid));
 		}
+
 		showmessage('您的投稿已收到', $cururl);					
 	}	
 	/**
@@ -236,7 +253,14 @@ class index {
 		pc_base::load_sys_class('format', '', 0);
 		$inputtime = format::date($inputtime,1);
 		$SEO = seo($siteid, '', $title);
-		$template = $show_template ? $show_template : ($_special['show_template'] ? $_special['show_template'] : 'show');
+		
+
+		$typeid = $_GET['typeid'] ? intval($_GET['typeid']) : 0;
+		$info = $this->db->get_one(array('id'=>$rs['specialid'], 'disabled'=>0));		
+		switch($rs['typeid']){
+			case 53 : $template = 'show_tglw';break;
+			default : $template = $show_template ? $show_template : ($_special['show_template'] ? $_special['show_template'] : 'show');	break;
+		}	
 		$style = $style ? $style : 'default';
 		include template('special', $template, $style);
 	}

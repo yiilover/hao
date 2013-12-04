@@ -1,9 +1,9 @@
 <?php defined('IN_PHPCMS') or exit('No permission resources.'); ?><?php include template('special', 'header'); ?>
-<div class="zt_pos"><span class="left">当前位置：<a href="http://www.xueshuhao.com/" title="中华医护好网">首页</a> > <a href="zazhi/?id=50" title="《健康大视野》">《健康大视野》</a> > <a href="zazhi/page.php?navid=291" title="主办单位">主办单位</a></span><span class="right"><font color="red">温馨提示：请按“Ctrl+D”收藏本页</font></span></div>	
+<div class="zt_pos"><span class="left">当前位置：<a href="/" title="">首页</a> > <a href="<?php echo $info[url]?>" title=""><?php echo $info[title]?></a> > <a href="" title="">在线投稿</a></span><span class="right"><font color="red">温馨提示：请按“Ctrl+D”收藏本页</font></span></div>	
 <div class="clear mt10"></div>
 <?php include template('special', 'left'); ?>
 <div class="zt_R_main">
-<h3 class="zt_h3_1"><strong><a title="在线投稿" href="zazhi/page.php?navid=292">《健康大视野》在线投稿</a></strong></h3>
+<h3 class="zt_h3_1"><strong><a title="在线投稿" href=""><?php echo $info[title]?>在线投稿</a></strong></h3>
 <script language="JavaScript" src="/statics/v1/js/formck.js"></script>
 <form action="index.php?m=special&c=index&a=tougao&specialid=<?php echo $specialid?>&typeid=53" enctype="multipart/form-data" onsubmit="return zazhiForm();" method="post" id="myform" name="myform">
 <input type="hidden" name="do" value="tougao">
@@ -12,7 +12,7 @@
 <input type="hidden" id="cururl" name="cururl" value="<?php echo $_SERVER['REQUEST_URI']?>">
 <table width="100%" cellspacing="1" cellpadding="5" bgcolor="#F3CEAB" align="center">
 <tbody><tr>
-<td height="25" bgcolor="ffffff" style="line-height:180%; color:#555555; padding:10px; background:#f1f1f1" colspan="2"><strong>《健康大视野》杂志投稿说明：</strong><br>
+<td height="25" bgcolor="ffffff" style="line-height:180%; color:#555555; padding:10px; background:#f1f1f1" colspan="2"><strong><?php echo $info[title]?>杂志投稿说明：</strong><br>
 <strong>1）</strong>成功投稿以后，工作人员会在0-2个工作日通过邮件、电话等方式回访。<br>
 <strong>2）</strong>论文中请注明是否允许编辑对论文进行调整。<br>
 <strong>3）</strong>论文中请注明单位全称、单位邮编、作者姓名，收信地址，收信人姓名，收信人电话。 </td>
@@ -22,7 +22,7 @@
 <div style="width:80px;">投稿杂志：</div>
 </td>
 <td bgcolor="ffffff">
-<input type="text" class="text" disabled="disabled" name="diszzname" id="diszzname" value="<?php echo '《'.$info[title].'》'?>">
+<input type="text" class="text" disabled="disabled" name="diszzname" id="diszzname" value="<?php echo $info[title]?>">
 &nbsp;<font color="#FF0000">*</font> </td>
 </tr>
 <tr>
@@ -82,8 +82,11 @@
 </tbody></table>
 </form>
 
-<form action="" method="get" name="search">
-<input type="hidden" value="292" name="navid">
+<form action="?" method="get" name="search">
+<input name="m" value="special" type="hidden">
+<input name="c" value="index" type="hidden">
+<input name="specialid" value="1" type="hidden">
+<input name="typeid" value="42" type="hidden">
 <table width="100%" cellspacing="1" cellpadding="5" bgcolor="#F3CEAB" align="center" style="margin-top:10px;">
 <tbody><tr>
 <td height="25" bgcolor="ffffff" style="line-height:180%; color:#555555; padding:10px; background:#f1f1f1"><strong>投稿查询说明：</strong>只能查询到通过本中心投稿的学术文章；如果未查询到结果，您也可以联系我们。</td>
@@ -101,6 +104,14 @@
 &nbsp;&nbsp;&nbsp;&nbsp; 
 </td>
 </tr>
+<?php if($search) { ?>
+<?php $n=1;if(is_array($search)) foreach($search AS $v) { ?>
+<tr>
+<td height="20" bgcolor="#FFFFFF">
+<span class="left"><?php if($v['status']==1) { ?><font color="red">[已审核]</font><?php } else { ?><font color="blue">[待审核]</font><?php } ?>&nbsp; <a title="<?php echo $v['title'];?>" target="_blank" href="<?php echo $v['url'];?>"><?php echo $v['title'];?></a> (作者：<?php echo $v['writer'];?>)</span><span class="right">(投稿日期：<?php echo date('Y-m-d',$r[inputtime]);?>)</span></td>
+</tr>
+<?php $n++;}unset($n); ?>
+<?php } ?>
 </tbody></table>
 </form>
 <?php include template('special', 'tgbd'); ?>

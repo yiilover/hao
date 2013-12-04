@@ -9,6 +9,7 @@ class special extends admin {
 	function __construct() {
 		parent::__construct();
 		$this->db = pc_base::load_model('special_model');
+		$this->category_db = pc_base::load_model('category_model');
 		$this->special_api = pc_base::load_app_class('special_api', 'special');
 	}
 	
@@ -68,6 +69,7 @@ class special extends admin {
 				$template_list[$v['dirname']] = $v['name'] ? $v['name'] : $v['dirname'];
 				unset($template_list[$k]);
 			}
+			$category = $this->category_db->select(array('parentid'=>13),'*');
 			include $this->admin_tpl('special_add');
 		}
 	}
@@ -130,6 +132,8 @@ class special extends admin {
 			}
 			$type_db = pc_base::load_model('type_model');
 			$types = $type_db->select(array('module'=>'special', 'parentid'=>$_GET['specialid'], 'siteid'=>$this->get_siteid()), '`typeid`, `name`, `listorder`, `typedir`', '', '`listorder` ASC, `typeid` ASC');
+			$category = $this->category_db->select(array('parentid'=>13),'*');
+			
 			include $this->admin_tpl('special_edit');
 		}
 	}

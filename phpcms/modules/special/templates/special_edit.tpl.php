@@ -56,7 +56,17 @@ include $this->admin_tpl('header', 'admin');
 		        </td>
     </tr>
 	-->
-	
+		<tr>
+			<th align="right"  valign="top">所属分类：</th>
+			<td valign="top" id="category">
+			<select name="special[catid]" id="catid">
+			<option value="0">  --  </option>
+			<?php foreach($category as $r){?>
+				<option value="<?php echo $r['catid']?>" <?php if($r['catid']==$info['catid']) echo 'selected';?>><?php echo $r['catname']?></option>
+			<?php }?>
+			</select></td>
+		</tr>
+		
 <tr>
         <th width="200"> 投稿必读：</th>
         <td><textarea boxid="tgbd" id="tgbd" name="special[tgbd]"  style="visibility: hidden; display: none;"><?php echo $info['tgbd'];?></textarea>
@@ -150,11 +160,11 @@ include $this->admin_tpl('header', 'admin');
 	</tr>		
 	<tr>
 		<th width="200">是否推荐：</th>
-		<td><input type="radio" id="is_recommend" value="<?php echo $info['is_recommend'];?>" <?php if($info['is_recommend']==1) echo 'checked'?>>是&nbsp;&nbsp;<input type="radio" id="is_recommend" value="<?php echo $info['is_recommend'];?>" <?php if($info['is_recommend']==0) echo 'checked'?>>否</td>
+		<td><input type="radio" name="special[is_recommend]" value="1" <?php if($info['is_recommend']==1) echo 'checked'?>>是&nbsp;&nbsp;<input type="radio" name="special[is_recommend]" value="0" <?php if($info['is_recommend']==0) echo 'checked'?>>否</td>
 	</tr>		
 	<tr>
 		<th width="200">是否热门：</th>
-		<td><input type="radio" id="is_hot" value="<?php echo $info['is_hot'];?>" <?php if($info['is_hot']==1) echo 'checked'?>>是&nbsp;&nbsp;<input type="radio" id="is_hot" value="<?php echo $info['is_hot'];?>" <?php if($info['is_hot']==0) echo 'checked'?>>否</td>
+		<td><input type="radio" name="special[is_hot]" value="1" <?php if($info['is_hot']==1) echo 'checked'?>>是&nbsp;&nbsp;<input type="radio" name="special[is_hot]" value="0" <?php if($info['is_hot']==0) echo 'checked'?>>否</td>
 	</tr>	
 		</tbody>
 	</table>

@@ -52,7 +52,15 @@ include $this->admin_tpl('header', 'admin');
 	        </td>
 	    </tr>
 		-->
-		
+		<tr>
+			<th align="right"  valign="top">所属分类：</th>
+			<td valign="top" id="category"><select>
+			<option value="0">  --  </option>
+			<?php foreach($category as $r){?>
+				<option value="<?php echo $r['catid']?>"><?php echo $r['catname']?></option>
+			<?php }?>
+			</select></td>
+		</tr>	
 	<tr>
         <th width="200"> 投稿必读：</th>
         <td><textarea boxid="tgbd" id="tgbd" name="special[tgbd]" style="visibility: hidden; display: none;"></textarea>

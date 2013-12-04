@@ -2,9 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>《健康大视野》_主办单位</title>
-<meta content="健康大视野杂志投稿" name="keywords" />
-<meta content=" 《健康大视野》杂志是由国家新闻出版总署正式批准，由卫生部主管中国保健协会主办的国家级医学专业性综合学术期刊。国际标准刊号：ISSN 1005-0019、国内统一刊号：CN 11-3252/R、邮发代号：82-584，国内外公开发行。本刊欢迎本专业及相关学科的医学工作者积极投稿。" name="description" />
+<title><?php if(isset($SEO['title']) && !empty($SEO['title'])) { ?><?php echo $SEO['title'];?><?php } ?><?php echo $SEO['site_title'];?></title>
+<meta name="keywords" content="<?php echo $SEO['keyword'];?>">
+<meta name="description" content="<?php echo $SEO['description'];?>">
 
 
 <script language="JavaScript" src="/statics/v1/js/config.js"></script>

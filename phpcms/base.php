@@ -59,6 +59,14 @@ if(pc_base::load_config('system','gzip') && function_exists('ob_gzhandler')) {
 	ob_start();
 }
 
+
+	
+
+
+
+
+
+
 class pc_base {
 	
 	/**

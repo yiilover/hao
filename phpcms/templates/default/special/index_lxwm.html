@@ -1,9 +1,9 @@
 {template 'special', 'header'}
-<div class="zt_pos"><span class="left">当前位置：<a href="http://www.xueshuhao.com/" title="中华医护好网">首页</a> > <a href="zazhi/?id=50" title="《健康大视野》">《健康大视野》</a> > <a href="zazhi/page.php?navid=291" title="主办单位">主办单位</a></span><span class="right"><font color="red">温馨提示：请按“Ctrl+D”收藏本页</font></span></div>	
+<div class="zt_pos"><span class="left">当前位置：<a href="/" title="">首页</a> > <a href="<?php echo $info[url]?>" title=""><?php echo $info[title]?></a> > <a href="" title="">联系我们</a></span><span class="right"><font color="red">温馨提示：请按“Ctrl+D”收藏本页</font></span></div>	
 <div class="clear mt10"></div>
 {template 'special', 'left'}
 <div class="zt_R_main">
-<h3 class="zt_h3_1"><strong><a title="联系我们" href="zazhi/page.php?navid=296">《<?php echo $info[title]?>》联系我们</a></strong></h3>
+<h3 class="zt_h3_1"><strong><a title="" href=""><?php echo $info[title]?>联系我们</a></strong></h3>
 <div class="m_intr"><p>
 <table cellspacing="0" cellpadding="0" width="95%" border="0">
     <tbody>
@@ -63,7 +63,7 @@
                             <tbody>
                                 <tr>
                                     <td width="20%" height="30"><strong><font color="#ff0000">在线QQ咨询：</font></strong></td>
-                                    <td><span style="font-size: 18px">&nbsp;&nbsp; <span style="font-size: 16px"><span style="font-family: 宋体"><font face="Arial"><span style="font-size: 14px"><span style="font-size: 14px"><span style="font-family: 宋体"><font face="Arial"><span style="font-size: 16px"><span style="font-family: 宋体"><font face="Arial"><span style="font-size: 14px"><span style="font-size: 14px"><span style="font-family: 宋体"><font face="Arial"><span style="font-size: 16px"><span style="font-size: 13px"><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=<?php echo $info[qq]?>&amp;site=qq&amp;menu=yes" style="text-decoration: none" data_ue_src="http://wpa.qq.com/msgrd?v=3&amp;uin=<?php echo $info[qq]?>&amp;site=qq&amp;menu=yes" target="_blank"><img border="0" src="http://wpa.qq.com/pa?p=1:<?php echo $info[qq]?>:1" style="cursor: pointer; height: 28px; text-decoration: none; width: 66px" orgsrc="http://wpa.qq.com/pa?p=1:<?php echo $info[qq]?>:1" jquery1710679716719667505="106" data_ue_src="http://wpa.qq.com/pa?p=1:<?php echo $info[qq]?>:1" alt="写作咨询" id="edit-image641"></a>&nbsp; </span></span></font></span></span></span></font></span></span></font></span></span></span></font></span></span><?php echo $info[qq]?></span></td>
+                                    <td><span style="font-size: 18px">&nbsp;&nbsp; {if $info[qq]}<span style="font-size: 16px"><span style="font-family: 宋体"><font face="Arial"><span style="font-size: 14px"><span style="font-size: 14px"><span style="font-family: 宋体"><font face="Arial"><span style="font-size: 16px"><span style="font-family: 宋体"><font face="Arial"><span style="font-size: 14px"><span style="font-size: 14px"><span style="font-family: 宋体"><font face="Arial"><span style="font-size: 16px"><span style="font-size: 13px"><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=<?php echo $info[qq]?>&amp;site=qq&amp;menu=yes" style="text-decoration: none" data_ue_src="http://wpa.qq.com/msgrd?v=3&amp;uin=<?php echo $info[qq]?>&amp;site=qq&amp;menu=yes" target="_blank"><img border="0" src="http://wpa.qq.com/pa?p=1:<?php echo $info[qq]?>:1" style="cursor: pointer; height: 28px; text-decoration: none; width: 66px" orgsrc="http://wpa.qq.com/pa?p=1:<?php echo $info[qq]?>:1" jquery1710679716719667505="106" data_ue_src="http://wpa.qq.com/pa?p=1:<?php echo $info[qq]?>:1" alt="写作咨询" id="edit-image641"></a>&nbsp; </span></span></font></span></span></span></font></span></span></font></span></span></span></font></span></span><?php echo $info[qq]?></span>{/if}</td>
                                 </tr>
                             </tbody>
                         </table>

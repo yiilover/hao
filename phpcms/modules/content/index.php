@@ -42,6 +42,7 @@ class index {
 			$qk_category_data[] = array('source'=>$r,'special_list'=>$special_list);
 			$qk_category_recommend_data[] = array('source'=>$r,'special_list'=>$special_list_recommend);
 		}
+
 		
 	
 		include template('content','index',$default_style);

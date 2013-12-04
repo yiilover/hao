@@ -1,7 +1,11 @@
-/cache/
-/cache/**
+/caches/
+/caches/**
+/html/
+/html/**
 /.buildpath
 /.project
 /.settings/
 /.settings/**
 /index.html
+/phpsso_server/
+/phpsso_server/**

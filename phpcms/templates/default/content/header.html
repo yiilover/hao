@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
 <title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
 <meta name="keywords" content="{$SEO['keyword']}">
 <meta name="description" content="{$SEO['description']}">
@@ -97,21 +98,25 @@ foreach($CATEGORYS as $k => $r){
 
 
 
+
 <div class="navlist">
 <div id="tabhead1" class="tab_head">
 <ul>
 <li onmouseover="tabbox(1,0)" class="now"><a href="./">网站首页</a></li>
+
 <?php $i=1;foreach($menu as $k=>$r){?>
 <li onmouseover="tabbox(1,<?php echo $i;?>)"><a href="<?php echo $r['url']?>"><?php echo $r['catname']?></a></li>
 <?php $i++;}?>
 <li onmouseover="tabbox(1,9)"><a href="/index.php?m=formguide&c=index&a=show&formid=14">问答互动</a></li>
 <li onmouseover="tabbox(1,10)"><a href="/index.php?m=content&c=index&a=lists&catid=3">联系我们</a></li>
+
 </ul>
 </div>
 <div id="tabbody1" class="tab_body">
 <ul class="nohidden">
 <li>欢迎您访问<strong>中华医护好网</strong>，中华医护好网是目前中国最大的医学、医疗综合服务提供商之一~</li>
 </ul>
+
 
 <?php foreach($menu as $k=>$r){?>
 <ul>
@@ -123,12 +128,14 @@ foreach($CATEGORYS as $k => $r){
 </li>
 </ul>
 <?php }?>
+
 <ul>
 <li>您可以与我们进行留言问答动动，将您的疑问在线反馈给我们，我们会尽快给您回复！</li>
 </ul>
 <ul>
 <li>您可以通过本页的联系方式与我们取得联系！</li>
 </ul>
+
 </div>
 <div class="clear"></div>
 </div>
@@ -164,4 +171,5 @@ foreach($CATEGORYS as $k => $r){
 </form>
 </div>
 <!--//search-->
+
 

@@ -249,6 +249,19 @@ class content extends admin {
 		showmessage(L('operation_success'), HTTP_REFERER);
 	}
 	
+	public function alterstatus() {
+		if (is_array($_POST['id'])) {
+			foreach ($_POST['id'] as $sid) {
+				$sid = intval($sid);
+				$this->db->update(array('status'=>$_GET['status']), array('id'=>$sid));
+			}		
+		}elseif (is_numeric($_POST['id'])){
+			$id = intval($_POST['id']);
+			$this->db->update(array('status'=>$_GET['status']), array('id'=>$id));
+		}		
+		showmessage(L('operation_success'), HTTP_REFERER);
+	}	
+	
 	/**
 	 * 添加到全站搜索
 	 * @param intval $id 文章ID

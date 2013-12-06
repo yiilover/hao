@@ -11,6 +11,8 @@ class special extends admin {
 		$this->db = pc_base::load_model('special_model');
 		$this->category_db = pc_base::load_model('category_model');
 		$this->special_api = pc_base::load_app_class('special_api', 'special');
+		$this->type_db = pc_base::load_model('type_model');		
+		$this->content_db = pc_base::load_model('special_content_model');
 	}
 	
 	/**
@@ -350,6 +352,19 @@ class special extends admin {
 		}
 	}
 	
+	public function special_all_list() {
+		$infos = $this->db->select('','*');
+		foreach($infos as $r){
+			$special[$r['id']] = $r;			
+		}
+		$page = max(intval($_GET['page']), 1);
+		$datas = $this->content_db->listinfo(array('typeid'=>53), '`listorder` ASC , `id` DESC', $page);
+		$pages = $this->content_db->pages;
+		$big_menu = array(array('javascript:openwinx(\'?m=special&c=content&a=add&specialid='.$_GET['specialid'].'\',\'\');void(0);', L('add_content')), array('javascript:window.top.art.dialog({id:\'import\',iframe:\'?m=special&c=special&a=import&specialid='.$_GET['specialid'].'\', title:\''.L('import_content').'\', width:\'700\', height:\'500\', lock:true}, function(){var d = window.top.art.dialog({id:\'import\'}).data.iframe;var form = d.document.getElementById(\'dosubmit\');form.click();return false;}, function(){window.top.art.dialog({id:\'import\'}).close()});void(0);', L('import_content')));
+		include $this->admin_tpl('content_all_list');		
+	}	
+
+
 	/**
 	 * 推荐专题
 	 */

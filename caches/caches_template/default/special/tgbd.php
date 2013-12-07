@@ -1,6 +1,0 @@
-<?php defined('IN_PHPCMS') or exit('No permission resources.'); ?><div class="zt_bidu mt10">
-            <h3 class="zt_h3_1"><strong class="left"><?php echo $info[title]?>投稿必读</strong></h3>
-<div class="con"><p class="zx_con"><?php echo $info[tgbd]?></p>
-<p>&nbsp;</p></div>
-</div>
-<!--//zt_bidu-->

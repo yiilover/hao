@@ -3,7 +3,7 @@
 return array (
 	'default' => array (
 		'hostname' => 'localhost',
-		'database' => 'v9_xueshuhao',
+		'database' => 'pc_xueshuhao',
 		'username' => 'root',
 		'password' => '',
 		'tablepre' => 'v9_',

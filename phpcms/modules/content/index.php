@@ -17,6 +17,8 @@ class index {
 	}
 	//首页
 	public function init() {
+		$id = $_GET['id'];
+		$special_hot = $this->special_db->select('is_hot=1','*',$id);
 		if(isset($_GET['siteid'])) {
 			$siteid = intval($_GET['siteid']);
 		} else {
